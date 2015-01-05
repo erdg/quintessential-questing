@@ -21,7 +21,21 @@
                ,"Resolve"    (gui '(+E/R +NumField) '(resolve : home obj) 8)
                ,"Wisdom"     (gui '(+E/R +NumField) '(wisdom : home obj) 8)
                ,"Leadership" (gui '(+E/R +NumField) '(leadership : home obj) 8) ) )
+
+         ("Skills"
+            (gui '(+E/R +Chart) '(skills : home obj) 4)
+            (<table> NIL NIL
+               '(NIL (NIL ,"Name") (NIL ,"Level") NIL)
+               (do 8
+                  (<row> NIL
+                     (choose-skill 1)
+                     (gui 2 '(+Obj +TextField) '(name +Skill) 20)
+                     (gui 3 '(+NumField) 2)
+                     (gui 4 '(+DelRowButton)) ) )
+               (<row> NIL NIL (scroll 4)) ) )
+
          ("Gear"
+            # Weapons
             (gui '(+E/R +Chart) '(wpns : home obj) 8
                '((This) (list NIL This (: cls) (: type) (: dmg) (: ap) (: rng)))
                cadr )
@@ -39,6 +53,7 @@
                      (gui 8 '(+DelRowButton)) ) )
                (<row> NIL NIL (scroll 1)) )
 
+            # Armor
             (gui '(+E/R +Chart) '(armor : home obj) 5
                '((This) (list NIL This (: slot) (: value)))
                cadr )

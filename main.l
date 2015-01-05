@@ -16,7 +16,9 @@
    "qq/gui.l" )
 
 (permission
+   Quest ,"Quest"
    Character ,"Character"
+   Skill ,"Skill"
    Weapon ,"Weapon" 
    Armor ,"Armor"
    RoleAdmin ,"Role Administration"

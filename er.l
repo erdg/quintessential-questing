@@ -1,3 +1,13 @@
+### Quests ###
+(class +Quest +Entity)
+   (rel name (+Ref +String))
+   (rel characters (+List +Link) (+Character))
+
+(dm url> (Tab)
+   (and (may Quest) (list "qq/quest.l" '*ID This)) )
+
+
+
 ### Characters ###
 (class +Character +Entity)
    # Info
@@ -19,9 +29,25 @@
 
    (rel wpns (+List +Link) (+Weapon)) 
    (rel armor (+List +Link) (+Armor))
+   (rel quests (+Link) (+Quest))
+
+   (rel skills (+List +Bag)
+      ((+Number))
+      ((+Link) (+Skill)) ) 
 
 (dm url> (Tab) 
    (and (may Character) (list "qq/character.l" '*ID This)) )
+
+
+
+### Skills ###
+(class +Skill +Entity)
+   (rel name (+Ref +String))
+   (rel characters (+List Link) skills (+Character))
+   (rel txt (+Blob)) # Description
+
+(dm url> (Tab)
+   (and (may Skill) (list "qq/skill.l" '*ID This)) )
 
 
 
